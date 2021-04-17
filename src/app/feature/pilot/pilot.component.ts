@@ -14,6 +14,7 @@ export class PilotComponent implements OnInit {
   routedPilot: Pilot;
 
   constructor(private router: Router) { 
+    
     if (!history.state.data && !history.state.allStarShip) {
       this.router.navigate(['/home'])
     } else {
