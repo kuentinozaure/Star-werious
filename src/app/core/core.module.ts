@@ -1,15 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FeatureModule } from '../feature/feature.module';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { NavigationDrawerComponent } from './components/navigation-drawer/navigation-drawer.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
 @NgModule({
   declarations: [
-    FeatureModule
+    ToolbarComponent,
+    NavigationDrawerComponent
   ],
   imports: [
-    CommonModule
+    SharedModule
+  ],
+  exports: [
+    ToolbarComponent,
+    NavigationDrawerComponent
   ]
 })
 export class CoreModule { }

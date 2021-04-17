@@ -1,0 +1,51 @@
+<table>
+  <tr >
+    <td>
+      name pilot
+    </td>
+    <td>
+      height pilot
+    </td>
+    <td>
+      go to
+    </td>
+  </tr>
+  <tr >
+    <td>
+     {{ routedStaship.cargo_capacity}}
+    </td>
+    <td>
+      {{ routedStaship.hyperdrive_rating}}
+    </td>
+    <td>
+     {{routedStaship.passengers}}
+    </td>
+  </tr>
+</table>
+
+
+<table *ngIf="routedStaship.starshipPilots">
+    <tr >
+      <td>
+        name pilot
+      </td>
+      <td>
+        height pilot
+      </td>
+      <td>
+        go to
+      </td>
+    </tr>
+  
+    <tr *ngFor="let item of routedStaship.starshipPilots; let indexOfelement=index;">
+      <td>
+        {{item.name}}
+      </td>
+      <td>
+        {{item.height}}
+      </td>
+      <td>
+        <button (click)="goToPilot(indexOfelement,item)"> go to this pilot</button>
+      </td>
+    </tr>
+  </table>
