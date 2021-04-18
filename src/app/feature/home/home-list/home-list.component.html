@@ -1,0 +1,24 @@
+<div class="table-title">
+  <table class="table-fill">
+    <thead>
+      <th class="text-left">model</th>
+      <th class="text-left">manufacturer</th>
+      <th class="text-left">go to</th>
+    </thead>
+    <tbody class="table-hover">
+      <tr *ngFor="let item of starshipDataSource; let indexOfelement = index">
+        <td>
+          {{ item.model }}
+        </td>
+        <td>
+          {{ item.manufacturer }}
+        </td>
+        <td>
+          <button (click)="goToStarships(indexOfelement, item)">
+            go to this starship
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
