@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { map, mergeAll } from 'rxjs/operators';
 import { Starship } from 'src/app/shared/model/starship';
 import { PilotService } from 'src/app/shared/services/pilot.service';
 import { StarshipService } from 'src/app/shared/services/starship.service';
@@ -19,10 +19,10 @@ export class HomeListComponent implements OnInit {
     private pilotService: PilotService,
     private router: Router
   ) {
+    this.getStarshipData();
   }
 
   ngOnInit(): void {
-    this.getStarshipData();
   }
 
   private getStarshipData() {

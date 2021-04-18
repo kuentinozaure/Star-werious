@@ -1,25 +1,18 @@
-<table *ngIf="routedPilot">
-    <tr >
-      <td>
-        hair color
-      </td>
-      <td>
-        birth year
-      </td>
-      <td>
-        go to
-      </td>
-    </tr>
-  
-    <tr>
-      <td>
-        {{routedPilot.hair_color}}
-      </td>
-      <td>
-        {{routedPilot.birth_year}}
-      </td>
-      <td>
-        ///
-      </td>
-    </tr>
+<div class="table-title" *ngIf="routedPilot">
+  <table class="table-fill">
+    <thead>
+      <th class="text-left">kair color</th>
+      <th class="text-left">birth year</th>
+    </thead>
+    <tbody class="table-hover">
+      <tr>
+        <td>
+          {{ routedPilot.hair_color }}
+        </td>
+        <td>
+          {{ routedPilot.birth_year }}
+        </td>
+      </tr>
+    </tbody>
   </table>
+</div>
