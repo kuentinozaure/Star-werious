@@ -1,12 +1,17 @@
-<div class="table-title">
+<div class="table-title" *ngIf="routedStaship">
   <table class="table-fill">
     <thead>
+      <th class="text-left">Name</th>
       <th class="text-left">Cargo capacity</th>
       <th class="text-left">Hyperdrive rating</th>
       <th class="text-left">Passengers</th>
+      <th class="text-left">Crew</th>
     </thead>
     <tbody class="table-hover">
       <tr>
+        <td>
+          {{ routedStaship.name}}
+        </td>
         <td>
           {{ routedStaship.cargo_capacity}}
         </td>
@@ -16,20 +21,8 @@
         <td>
           {{routedStaship.passengers}}
         </td>
-      </tr>
-
-      <th class="text-left" *ngIf="routedStaship.starshipPilots.length > 0"></th>
-      <th class="text-left" *ngIf="routedStaship.starshipPilots.length > 0">Pilot</th>
-      <th class="text-left" *ngIf="routedStaship.starshipPilots.length > 0"></th>
-      <tr *ngFor="let item of routedStaship.starshipPilots; let indexOfelement=index;">
         <td>
-          {{item.name}}
-        </td>
-        <td>
-          {{item.height}}
-        </td>
-        <td>
-          <button (click)="goToPilot(indexOfelement,item)"> go to this pilot</button>
+          {{routedStaship.crew}}
         </td>
       </tr>
     </tbody>
@@ -37,9 +30,11 @@
 </div>
 
 
+<br/>
+<br/>
 
-<!-- <div class="table-title" *ngIf="routedStaship.starshipPilots.length > 0">
-  <table class="table-fill">
+<div class="table-pilot" *ngIf="routedStaship">
+  <table class="table-fill" *ngIf="routedStaship.starshipPilots.length > 0">
     <thead>
       <th class="text-left">Name</th>
       <th class="text-left">Height</th>
@@ -59,4 +54,6 @@
       </tr>
     </tbody>
   </table>
-</div> -->
+</div>
+
+<br/>

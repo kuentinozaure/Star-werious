@@ -1,16 +1,28 @@
 <div class="table-title" *ngIf="routedPilot">
   <table class="table-fill">
     <thead>
-      <th class="text-left">kair color</th>
+      <th class="text-left">Name</th>
+      <th class="text-left">hair color</th>
       <th class="text-left">birth year</th>
+      <th class="text-left">mass</th>
+      <th class="text-left">skin color</th>
     </thead>
     <tbody class="table-hover">
       <tr>
+        <td>
+          {{ routedPilot.name }}
+        </td>
         <td>
           {{ routedPilot.hair_color }}
         </td>
         <td>
           {{ routedPilot.birth_year }}
+        </td>
+        <td>
+          {{ routedPilot.mass }}
+        </td>
+        <td>
+          {{ routedPilot.skin_color }}
         </td>
       </tr>
     </tbody>
