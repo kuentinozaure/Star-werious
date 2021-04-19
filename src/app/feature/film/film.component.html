@@ -1,0 +1,28 @@
+<!-- Film information -->
+<div class="table-title" *ngIf="routedFilm">
+    <table class="table-fill">
+      <thead>
+        <th class="text-left">Title</th>
+        <th class="text-left">Release date</th>
+        <th class="text-left">N° episode</th>
+        <th class="text-left">Producer</th>
+      </thead>
+      <tbody class="table-hover">
+        <tr>
+          <td>
+            {{ routedFilm.title}}
+          </td>
+          <td>
+            {{ routedFilm.release_date}}
+          </td>
+          <td>
+            {{ routedFilm.episode_id}}
+          </td>
+          <td>
+            {{routedFilm.producer}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
