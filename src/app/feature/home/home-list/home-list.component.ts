@@ -43,13 +43,15 @@ export class HomeListComponent implements OnInit {
 
 
             starship.pilots.map((url) => {
-              this.pilotService.getPilots(url).pipe(map((pilot) => pilot)).subscribe(
+              // replace http to https for heroku (heroku block access to http ressource)
+              this.pilotService.getPilots(url.replace('http','https')).pipe(map((pilot) => pilot)).subscribe(
                 (pilot) => { starship.starshipPilots.push(pilot)}
               );
             });
 
             starship.films.map((url) => {
-              this.filmService.getFilm(url).pipe(map((film) => film)).subscribe(
+              // replace http to https for heroku (heroku block access to http ressource)
+              this.filmService.getFilm(url.replace('http','https')).pipe(map((film) => film)).subscribe(
                 (film) => { starship.starshipFilms.push(film)}
               );
             });
