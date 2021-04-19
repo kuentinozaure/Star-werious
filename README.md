@@ -91,8 +91,11 @@ $ docker build -t yourdockerimagename .
 # StarWerious (Fr)
 
 Ce projet est une application angulaire réalisée avec Angular CLI 11.2.9.
+
 Le rôle principal de cette application est d'appeler l'Api Swapi et de lister les vaisseaux et les pilotes.
+
 Cette application est prête pour la production avec un fichier docker
+
 L'application est accessible [ici](https://starwerious.herokuapp.com/home).
 
 ## Comment créer votre image docker et l'exécuter
