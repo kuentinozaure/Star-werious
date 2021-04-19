@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { map, mergeAll } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Starship } from 'src/app/shared/model/starship';
+import { FilmService } from 'src/app/shared/services/film.service';
 import { PilotService } from 'src/app/shared/services/pilot.service';
 import { StarshipService } from 'src/app/shared/services/starship.service';
 
@@ -17,6 +18,7 @@ export class HomeListComponent implements OnInit {
   constructor(
     private starshipService: StarshipService,
     private pilotService: PilotService,
+    private filmService: FilmService,
     private router: Router
   ) {
     this.getStarshipData();
@@ -25,24 +27,45 @@ export class HomeListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * This method get starships list, films list, pilot list
+   */
   private getStarshipData() {
       this.starshipService
-        .getStarships(1)
+        .getStarships()
         .pipe(map((restPage) => restPage.results))
         .subscribe((starships) => {
           starships.map((starship) => {
+
+            // Initialize the starship pilot and film array to store pilot and film
             starship.starshipPilots = [];
+            starship.starshipFilms = [];
+
+
             starship.pilots.map((url) => {
               this.pilotService.getPilots(url).pipe(map((pilot) => pilot)).subscribe(
                 (pilot) => { starship.starshipPilots.push(pilot)}
               );
             });
+
+            starship.films.map((url) => {
+              this.filmService.getFilm(url).pipe(map((film) => film)).subscribe(
+                (film) => { starship.starshipFilms.push(film)}
+              );
+            });
+
+            // replace the `old starship` by starship updated (film, pilot) to the starships list
             this.starshipDataSource.push(starship)
           });
         });
   }
 
+  /**
+   * This method can redirect the link tab in the template to the starship selected
+   * @param starshipId index of the starship on the list
+   * @param starship starship array contains in starship list
+   */
   goToStarships(starshipId: number, starship: Starship) {
-    this.router.navigate([`starship/${starshipId}`], {state: {data: starship}});
+    this.router.navigate([`starship/${starshipId}`], {state: {starship: starship}});
   }
 }

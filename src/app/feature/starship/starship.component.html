@@ -1,4 +1,5 @@
-<div class="table-title" *ngIf="routedStaship">
+<!-- Starship element display -->
+<div class="table-title" *ngIf="routedStarship">
   <table class="table-fill">
     <thead>
       <th class="text-left">Name</th>
@@ -10,19 +11,19 @@
     <tbody class="table-hover">
       <tr>
         <td>
-          {{ routedStaship.name}}
+          {{ routedStarship.name}}
         </td>
         <td>
-          {{ routedStaship.cargo_capacity}}
+          {{ routedStarship.cargo_capacity}}
         </td>
         <td>
-          {{ routedStaship.hyperdrive_rating}}
+          {{ routedStarship.hyperdrive_rating}}
         </td>
         <td>
-          {{routedStaship.passengers}}
+          {{routedStarship.passengers}}
         </td>
         <td>
-          {{routedStaship.crew}}
+          {{routedStarship.crew}}
         </td>
       </tr>
     </tbody>
@@ -33,15 +34,40 @@
 <br/>
 <br/>
 
-<div class="table-pilot" *ngIf="routedStaship">
-  <table class="table-fill" *ngIf="routedStaship.starshipPilots.length > 0">
+<!-- List of film for a starship -->
+<div class="table-pilot" *ngIf="routedStarship">
+  <table class="table-fill" *ngIf="routedStarship.starshipFilms.length > 0">
+    <thead>
+      <th class="text-left">Director</th>
+      <th class="text-left">Go to</th>
+    </thead>
+    <tbody class="table-hover">
+      <tr *ngFor="let item of routedStarship.starshipFilms; let indexOfelement=index;">
+        <td>
+          {{item.director}}
+        </td>
+        <td>
+          <button (click)="goToFilm(indexOfelement,item)">more info about this film ?</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<br/>
+<br/>
+
+<!-- List of pilot for a starship -->
+<div class="table-pilot" *ngIf="routedStarship">
+  <table class="table-fill" *ngIf="routedStarship.starshipPilots.length > 0">
     <thead>
       <th class="text-left">Name</th>
       <th class="text-left">Height</th>
       <th class="text-left">Go to</th>
     </thead>
     <tbody class="table-hover">
-      <tr *ngFor="let item of routedStaship.starshipPilots; let indexOfelement=index;">
+      <tr *ngFor="let item of routedStarship.starshipPilots; let indexOfelement=index;">
         <td>
           {{item.name}}
         </td>
@@ -49,7 +75,7 @@
           {{item.height}}
         </td>
         <td>
-          <button (click)="goToPilot(indexOfelement,item)"> go to this pilot</button>
+          <button (click)="goToPilot(indexOfelement,item)">more info about this pilot ?</button>
         </td>
       </tr>
     </tbody>

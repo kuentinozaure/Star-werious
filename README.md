@@ -1,5 +1,5 @@
 
-# StarWerious (EN)
+# StarWerious (En)
 
   
 
@@ -84,6 +84,8 @@ $ docker build -t yourdockerimagename .
 
 - I had my own css style for the table of (starship list, starship details, pilot details),but I have bad taste in design
 
+- I had to a starship list the film that are associated to the starships
+
 
 # StarWerious (Fr)
 
@@ -129,3 +131,5 @@ page visionnée..
 - J'ai ajouté la fonctionnalité pwa qui vous permet de `télécharger l'application starWerious` sur votre appareil, si vous voulez tester la fonctionnalité pwa, veuillez exécuter `npm run start-pwa`.
 
 - J'ai crée mon propre style css pour les tableau de (liste des vaisseaux, détails des vaisseaux, détails des pilotes), mais j'avoue que j'ai un mauvais goût en matière de design .
+
+- J'ai ajouté la liste des films qui sont associés au vaisseaux

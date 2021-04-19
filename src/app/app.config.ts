@@ -11,6 +11,10 @@ export const config = {
         pilot : {
             path: 'pilot/:id',
             label: 'pilot'
+        },
+        film : {
+            path: 'film/:id',
+            label: 'film'
         }
     }
 }

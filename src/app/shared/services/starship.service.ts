@@ -1,8 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { forkJoin, Observable } from 'rxjs';
-import { map, mergeAll, mergeMap, switchMap, tap } from 'rxjs/operators';
-import { Pilot } from '../model/pilot';
+import { Observable } from 'rxjs';
 import { RestPage } from '../model/restPage';
 import { Starship } from '../model/starship';
 
@@ -14,9 +12,13 @@ export class StarshipService {
 
   constructor(private http: HttpClient) {}
 
-  public getStarships(pagenumber: number): Observable<RestPage<Starship>> {
+  /**
+   * This function can get the starship list paginate
+   * @returns an Observable of a starship list paginate
+   */
+  public getStarships(): Observable<RestPage<Starship>> {
     return this.http.get<RestPage<Starship>>(
-      `${this.BASE_URL}starships/?page=${pagenumber}`
+      `${this.BASE_URL}starships/`
     );
   }
 

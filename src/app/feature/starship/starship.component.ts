@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Film } from 'src/app/shared/model/film';
 import { Pilot } from 'src/app/shared/model/pilot';
 import { Starship } from 'src/app/shared/model/starship';
 
@@ -10,16 +11,14 @@ import { Starship } from 'src/app/shared/model/starship';
 })
 export class StarshipComponent implements OnInit {
 
-  routedStaship: Starship;
-  allStarShip: Starship[];
-
+  routedStarship: Starship;
+  
   constructor(private router: Router) { 
 
-    if (!history.state.data && !history.state.allStarShip) {
+    if (!history.state.starship) {
       this.router.navigate(['/home'])
     } else {
-      this.routedStaship = history.state.data
-      this.allStarShip = history.state.allStarShip
+      this.routedStarship = history.state.starship
     }
     
   }
@@ -27,8 +26,22 @@ export class StarshipComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToPilot(numberIndex: number, pilot: Pilot) {
-    this.router.navigate([`pilot/${numberIndex}`], {state: {data: pilot}});
+  /**
+   * This method can redirect the user to the selected pilot
+   * @param pilotNumber is the pilot number
+   * @param pilot is the pilot object 
+   */
+  goToPilot(pilotNumber: number, pilot: Pilot) {
+    this.router.navigate([`pilot/${pilotNumber}`], {state: {pilot: pilot}});
+  }
+
+  /**
+   * This method can redirect the user to the selected film
+   * @param filmNumber is the film number
+   * @param film is the film object
+   */
+  goToFilm(filmNumber: number, film: Film) {
+    this.router.navigate([`film/${filmNumber}`], {state: {film: film}});
   }
 
 }

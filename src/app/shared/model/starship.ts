@@ -1,3 +1,4 @@
+import { Film } from "./film";
 import { Pilot } from "./pilot";
 
 export interface Starship {
@@ -16,4 +17,6 @@ export interface Starship {
     starship_class: string;
     pilots: string[]; 
     starshipPilots: Pilot[];   
+    films: string[];
+    starshipFilms: Film[];
 }

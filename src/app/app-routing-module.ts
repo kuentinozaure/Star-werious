@@ -19,6 +19,11 @@ const routes: Routes = [
         loadChildren: () => import('./feature/pilot/pilot.module').then(m => m.PilotModule)
     },
     {
+        path: config.routing.film.path,
+        data: {},
+        loadChildren: () => import('./feature/film/film.module').then(m => m.FilmModule)
+    },
+    {
         path:'',
         redirectTo: config.routing.home.path, 
         pathMatch: 'full'
