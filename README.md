@@ -15,15 +15,9 @@ the application is available [here](https://starwerious.herokuapp.com/home).
 
 ## How to create your docker image and run it
 
-``
+`$ docker build -t yourdockerimagename .`
 
-$ docker build -t yourdockerimagename .
-
-``
-
-``$ docker run -d -it -p 80:80/tcp yourdockerimagename
-
-``
+`$ docker run -d -it -p 80:80/tcp yourdockerimagename`
 
   
 
@@ -96,11 +90,10 @@ Cette application est prête pour la production avec un fichier docker
 L'application est accessible [ici](https://starwerious.herokuapp.com/home).
 
 ## Comment créer votre image docker et l'exécuter
-``
-$ docker build -t yourdockerimagename .
-``
-``$ docker run -d -it -p 80:80/tcp yourdockerimagename 
-``
+
+`$ docker build -t yourdockerimagename .`
+
+`$ docker run -d -it -p 80:80/tcp yourdockerimagename `
 
 ## Fonctionnalité implémentée dans ce projet
 
